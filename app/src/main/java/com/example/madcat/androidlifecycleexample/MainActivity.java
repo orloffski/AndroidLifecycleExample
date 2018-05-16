@@ -13,19 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         connector = new ServerConnector();
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        connector.connect();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        connector.disconnect();
+        getLifecycle().addObserver(connector);
     }
 }
